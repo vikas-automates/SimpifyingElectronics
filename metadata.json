@@ -1,0 +1,5 @@
+{
+  "name": "ElectroSchematic AI",
+  "description": "Upload an image of any electronic device to generate a science-textbook style diagram with labeled components and detailed explanations of their roles in the workflow.",
+  "requestFramePermissions": []
+}
