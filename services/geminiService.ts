@@ -48,6 +48,7 @@ export const analyzeElectronicDevice = async (base64Image: string, mimeType: str
                - Description: Simple physical description.
                - WorkflowRole: Explain its job in the flow of electricity or data (e.g., "First it takes the sound...").
                - Analogy: A relatable real-world comparison (e.g., "Like the brain of the operation", "Like a traffic cop").
+               - ScientificPrinciple: The underlying physics/engineering concept (e.g., "Electromagnetism", "Photoelectric Effect", "Capacitance") with a very brief explanation of what that means.
             
             Return the result in JSON format.`
           }
@@ -68,9 +69,10 @@ export const analyzeElectronicDevice = async (base64Image: string, mimeType: str
                   name: { type: Type.STRING },
                   description: { type: Type.STRING },
                   workflowRole: { type: Type.STRING },
-                  analogy: { type: Type.STRING }
+                  analogy: { type: Type.STRING },
+                  scientificPrinciple: { type: Type.STRING }
                 },
-                required: ["name", "description", "workflowRole", "analogy"]
+                required: ["name", "description", "workflowRole", "analogy", "scientificPrinciple"]
               }
             }
           },

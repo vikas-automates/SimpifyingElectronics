@@ -1,6 +1,7 @@
 import React from 'react';
 import { AnalysisResult } from '../types';
 import { ComponentCard } from './ComponentCard';
+import { ShareActions } from './ShareActions';
 
 interface ResultsViewProps {
   originalImage: string;
@@ -17,22 +18,30 @@ export const ResultsView: React.FC<ResultsViewProps> = ({ originalImage, generat
       
       {/* Header Section */}
       <div className="bg-white rounded-2xl p-6 shadow-sm border border-slate-200">
-        <div className="flex flex-col md:flex-row justify-between items-start gap-6">
-          <div className="space-y-2">
-            <div className="flex items-center gap-2">
+        <div className="flex flex-col lg:flex-row justify-between items-start gap-6">
+          <div className="space-y-3 flex-1">
+            <div className="flex items-center gap-2 flex-wrap">
                <span className="bg-indigo-600 text-white text-xs font-bold px-2 py-1 rounded uppercase tracking-widest">Deconstructed</span>
                <h2 className="text-3xl md:text-4xl font-extrabold text-slate-900 tracking-tight">{analysis.deviceName}</h2>
             </div>
-            <p className="text-lg text-slate-600 font-medium leading-relaxed max-w-3xl border-l-4 border-indigo-500 pl-4">
+            <p className="text-lg text-slate-600 font-medium leading-relaxed border-l-4 border-indigo-500 pl-4">
               {analysis.summary}
             </p>
+            
+            <div className="pt-2">
+              <ShareActions 
+                title={`Check out how this ${analysis.deviceName} works!`} 
+                text={`I just analyzed a ${analysis.deviceName} with ElectroSchematic AI. Here's how it works: ${analysis.summary}`} 
+              />
+            </div>
           </div>
+
           <button 
             onClick={onReset}
-            className="shrink-0 px-5 py-2.5 bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-full text-sm font-bold transition-all hover:shadow-md flex items-center gap-2"
+            className="shrink-0 px-5 py-2.5 bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-full text-sm font-bold transition-all hover:shadow-md flex items-center gap-2 whitespace-nowrap"
           >
             <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path></svg>
-            Analyze Another Device
+            Analyze New Device
           </button>
         </div>
       </div>
