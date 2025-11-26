@@ -2,6 +2,10 @@ import path from 'path';
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 
+console.log('--- VITE_CONFIG DEBUG ---');
+console.log('GEMINI_API_KEY value is:', process.env.GEMINI_API_KEY);
+console.log('-------------------------');
+
 export default defineConfig({
   base: '/',
   server: {
